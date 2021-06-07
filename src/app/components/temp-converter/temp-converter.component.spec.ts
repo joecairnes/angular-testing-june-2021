@@ -47,4 +47,19 @@ describe('TempConverterComponent', () => {
     const resultSpan = fixtureElementUtils.getNativeElement<HTMLSpanElement>('[data-temp-converter-result]');
     expect(resultSpan.innerText).toEqual('412 is 999 Celsius');
   });
+
+  it('is rounded in the template', () => {
+    serviceFake.convertToC.and.returnValue(0.555555);
+    const fixtureElementUtils = new FixtureElementUtils(fixture.debugElement);
+    const tempInput = fixtureElementUtils.getNativeElement<HTMLInputElement>('[data-temp-converter-entry]');
+    tempInput.value = '412';
+
+
+    const convertButton = fixtureElementUtils.getNativeElement<HTMLButtonElement>('[data-temp-converter-convert-button]');
+
+    convertButton.click();
+
+    const resultSpan = fixtureElementUtils.getNativeElement<HTMLSpanElement>('[data-temp-converter-result]');
+    expect(resultSpan.innerText).toEqual('412 is 0.56 Celsius');
+  });
 });

@@ -3,11 +3,12 @@
 // with Intellisense and code completion in your
 // IDE or Text Editor.
 // ***********************************************
-// declare namespace Cypress {
-//   interface Chainable<Subject = any> {
-//     customCommand(param: any): typeof customCommand;
-//   }
-// }
+declare namespace Cypress {
+  interface Chainable<Subject = any> {
+    findRouterLinkFor(routeName: string): Chainable<Element>;
+    enterTemperatureForConverter(temp: number): Chainable<Element>;
+  }
+}
 //
 // function customCommand(param: any): void {
 //   console.warn(param);
@@ -41,3 +42,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+/** This finds the link for the named route */
+Cypress.Commands.add("findRouterLinkFor", (routeName: string) => {
+  return cy.get(`[data-router-link=${routeName}]`);
+});
+
+
+//  cy.get('[data-temp-converter-entry]').type('212');
+
+Cypress.Commands.add("enterTemperatureForConverter", (temp: number) => {
+  return cy.get('[data-temp-converter-entry]').type(temp.toString());
+})
