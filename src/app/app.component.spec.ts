@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'angular-testing'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-testing');
+    expect(app.title).toEqual('Angular Testing');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-testing app is running!');
+    expect(compiled.querySelector('header>h1').textContent).toContain('Angular Testing');
   });
 });
