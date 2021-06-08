@@ -7,19 +7,25 @@ import { TempConverterComponent } from './components/temp-converter/temp-convert
 import { TempConverterService } from './services/temp-converter.service';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesRawComponent } from './components/movies/components/movies-raw/movies-raw.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MoviesDataService } from './services/movies-data.service';
 @NgModule({
   declarations: [
     AppComponent,
     TempConverterComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    MoviesComponent,
+    MoviesRawComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [TempConverterService],
+  providers: [TempConverterService, MoviesDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

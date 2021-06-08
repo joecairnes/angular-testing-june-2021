@@ -1,9 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { MoviesRawComponent } from './components/movies/components/movies-raw/movies-raw.component';
+import { MoviesComponent } from './components/movies/movies.component';
 import { TempConverterComponent } from './components/temp-converter/temp-converter.component';
 
 const routes: Routes = [
+  {
+    path: 'movies',
+    component: MoviesComponent,
+    children: [
+      {
+        path: 'raw',
+        component: MoviesRawComponent
+      }
+    ]
+  },
   {
     path: 'converter',
     component: TempConverterComponent
