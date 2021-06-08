@@ -14,6 +14,10 @@ import { MoviesDataService } from './services/movies-data.service';
 import { MoviesReduxComponent } from './components/movies/components/movies-redux/movies-redux.component';
 import { MoviesReduxEntryComponent } from './components/movies/components/movies-redux-entry/movies-redux-entry.component';
 import { MoviesReduxListComponent } from './components/movies/components/movies-redux-list/movies-redux-list.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,9 @@ import { MoviesReduxListComponent } from './components/movies/components/movies-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [TempConverterService, MoviesDataService],
   bootstrap: [AppComponent]
