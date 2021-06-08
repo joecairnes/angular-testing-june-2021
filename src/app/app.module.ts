@@ -17,6 +17,9 @@ import { MoviesReduxListComponent } from './components/movies/components/movies-
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './effects/app.effects';
+import { MoviesEffects } from './effects/movies.effects';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([AppEffects, MoviesEffects])
   ],
   providers: [TempConverterService, MoviesDataService],
   bootstrap: [AppComponent]
