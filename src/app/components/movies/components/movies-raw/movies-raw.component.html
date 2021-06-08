@@ -1,5 +1,8 @@
-<ul>
-  <li *ngFor="let movie of movies$ | async">
-    <span>{{movie.title}} by {{ movie.director}}</span>
-  </li>
-</ul>
+<div data-movies-raw>
+  <ul data-movies-raw-list>
+    <li *ngFor="let movie of movies$ | async;let idx = index">
+      <span [attr.data-movies-raw-list-item]="idx">{{movie.title}} by {{ movie.director}} was released in
+        {{movie?.yearReleased || '(unknown)' }}</span>
+    </li>
+  </ul>
+</div>

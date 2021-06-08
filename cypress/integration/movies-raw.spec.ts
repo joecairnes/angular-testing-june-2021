@@ -6,7 +6,12 @@
 // https://on.cypress.io/writing-first-test
 describe('movies raw', () => {
 
-  it('really calls the API', () => {
+  it('using good data', () => {
+    cy.intercept('GET', 'http://localhost/movies', { fixture: 'movies-raw-ok.json' })
     cy.visit('/movies/raw');
+
+    cy.get('[data-movies-raw-list]').children('li').should('have.length', 2);
+    cy.get('[data-movies-raw-list-item=0]').should('contain.text', 'Jaws by Spielberg was released in (unknown)');
+    cy.get('[data-movies-raw-list-item=1]').should('contain.text', 'Apocolypse Now by Coppola was released in 1974');
   });
 });
