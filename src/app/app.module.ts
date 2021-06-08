@@ -11,6 +11,9 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MoviesRawComponent } from './components/movies/components/movies-raw/movies-raw.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesDataService } from './services/movies-data.service';
+import { MoviesReduxComponent } from './components/movies/components/movies-redux/movies-redux.component';
+import { MoviesReduxEntryComponent } from './components/movies/components/movies-redux-entry/movies-redux-entry.component';
+import { MoviesReduxListComponent } from './components/movies/components/movies-redux-list/movies-redux-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { MoviesDataService } from './services/movies-data.service';
     NavComponent,
     HomeComponent,
     MoviesComponent,
-    MoviesRawComponent
+    MoviesRawComponent,
+    MoviesReduxComponent,
+    MoviesReduxEntryComponent,
+    MoviesReduxListComponent
   ],
   imports: [
     BrowserModule,
